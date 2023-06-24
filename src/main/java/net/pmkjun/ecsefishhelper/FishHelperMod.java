@@ -1,7 +1,9 @@
 package net.pmkjun.ecsefishhelper;
 
 import net.fabricmc.api.ModInitializer;
+import com.mojang.blaze3d.systems.RenderSystem;
 
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +15,6 @@ public class FishHelperMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
 
 
 	}
