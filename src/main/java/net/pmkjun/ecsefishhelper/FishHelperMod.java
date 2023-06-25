@@ -1,21 +1,22 @@
 package net.pmkjun.ecsefishhelper;
 
+import com.mojang.logging.LogUtils;
 import net.fabricmc.api.ModInitializer;
-import com.mojang.blaze3d.systems.RenderSystem;
 
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class FishHelperMod implements ModInitializer {
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
+	public static final String MODID = "ecse-fish-helper";
 
+	public static final Logger LOGGER = LogUtils.getLogger();
+
+	public FishHelperClient client;
 
 	@Override
 	public void onInitialize() {
-
+		this.client = new FishHelperClient();
+		this.client.init();
 
 	}
 }
