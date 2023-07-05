@@ -1,0 +1,11 @@
+{
+  "fishhelper.config.title" : "이클립스 Fish Helper",
+  "fishhelper.config.cooldownfield" : "토템 쿨타임",
+  "fishhelper.config.activatefield" : "토템 지속시간",
+  "fishhelper.config.cooldownreductionfield" : "토템 쿨감시간",
+  "fishhelper.config.savebutton" : "설정 저장",
+  "fishhelper.config.backbutton" : "돌아가기",
+  "fishhelper.config.showtime" : "토템 시간 표시",
+  "fishhelper.config.enable" : "활성화",
+  "fishhelper.config.disable" : "비활성화"
+}

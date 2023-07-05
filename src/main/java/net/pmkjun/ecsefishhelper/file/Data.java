@@ -10,9 +10,9 @@ public class Data implements Serializable{
     public boolean toggleTotemtimeText = true;
 
     public boolean isTotemCooldown = false;
-    public int valueTotemCooldown = 1;
+    public int valueTotemCooldown = 60;
     public int valueTotemActivetime = 1;
-    public double valueCooldownReduction = 5*1000;
+    public long valueCooldownReduction = 0;
     public long lastTotemTime=0;
     public long lastTotemCooldownTime = 0;
 }

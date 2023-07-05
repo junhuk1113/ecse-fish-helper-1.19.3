@@ -34,6 +34,7 @@ public class ItemPickupMixin {
 				if(cursorStack.getName().getString().equals("토템 발동")){
 					LOGGER.info("토템 발동 버튼 눌림");
 					FishHelperClient.getInstance().updateLastTotemtime();
+					FishHelperClient.getInstance().configManage.save();
 				}
 				//LOGGER.info("item.pickup: " + cursorStack.getTooltipData().);
 			}
