@@ -6,7 +6,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.MathHelper;
 import net.pmkjun.ecsefishhelper.util.ConvertActivateTime;
 
-//@Environment(EnvType.CLIENT)
 class ActivateTimeSlider extends SliderWidget {
     private final double min;
     private final double max;
@@ -25,7 +24,7 @@ class ActivateTimeSlider extends SliderWidget {
         level = (int)MathHelper.lerp(MathHelper.clamp(this.value, 0.0, 1.0), this.min, this.max);
 
         this.setMessage(Text.literal(Text.translatable("fishhelper.config.activatefield").getString()
-                +" : "+ Integer.toString(level)+"lv ("+
+                +" : "+ level +"lv ("+
                 ConvertActivateTime.asMinute(level)+
                 Text.translatable("fishhelper.config.minute").getString()+")"));
     }

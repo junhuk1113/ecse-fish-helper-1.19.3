@@ -16,8 +16,6 @@ public class ConfigScreen extends Screen {
     private MinecraftClient mc;
     private FishHelperClient client;
     private final Screen parentScreen;
-    private TextFieldWidget totemCooldown_TextField;
-    private TextFieldWidget totemActivate_TextField;
     private TextFieldWidget CooldownReduction_TextField;
 
     private ButtonWidget toggleTotemButton;
@@ -63,14 +61,10 @@ public class ConfigScreen extends Screen {
 
         cooldownSlider = new CooldownSlider(10, 35, 150,
                 ConvertCooldown.asLevel(this.client.data.valueTotemCooldown),0,10);
+        this.addDrawableChild(activateTimeSlider);
+        this.addDrawableChild(cooldownSlider);
 
-        //timerXSlider = new Timer_x_Slider(10,100,150,this.client.data.Timer_xpos,2,this.width-43);
-        timerXbtn = ButtonWidget.builder(Text.translatable(timerxpos),button -> {
-            toggleTotemXpos();
-        }).dimensions(10,115,150,20).build();
-        this.addDrawableChild(timerXbtn);
-        timerYSlider = new Timer_y_Slider(10,140,150,this.client.data.Timer_ypos,2,this.height-18);
-
+        //토템 쿨감시간
         this.CooldownReduction_TextField = new TextFieldWidget(this.textRenderer,100,60,35,10,this.CooldownReduction_TextField,Text.translatable("fishhelper.config.cooldownreductionfield"));
         this.CooldownReduction_TextField.setText(Double.toString(this.client.data.valueCooldownReduction/(double)1000));
         this.addSelectableChild(this.CooldownReduction_TextField);
@@ -80,6 +74,13 @@ public class ConfigScreen extends Screen {
         }).dimensions(10,75, 150,20).build();
         this.addDrawableChild(toggleTotemButton);
 
+        timerXbtn = ButtonWidget.builder(Text.translatable(timerxpos),button -> {
+            toggleTotemXpos();
+        }).dimensions(10,115,150,20).build();
+        this.addDrawableChild(timerXbtn);
+        timerYSlider = new Timer_y_Slider(10,140,150,this.client.data.Timer_ypos,1,1000);
+        this.addDrawableChild(timerYSlider);
+
         this.addDrawableChild(ButtonWidget.builder(Text.translatable("fishhelper.config.backbutton"),button -> {
             mc.setScreen(parentScreen);
         }).dimensions(10,this.height-30, 50,20).build());
@@ -88,13 +89,6 @@ public class ConfigScreen extends Screen {
             changeSetting();
             mc.setScreen(parentScreen);
         }).dimensions(this.width-60,this.height-30, 50,20).build());
-
-
-
-        this.addDrawableChild(activateTimeSlider);
-        this.addDrawableChild(cooldownSlider);
-
-        this.addDrawableChild(timerYSlider);
     }
 
     @Override
@@ -114,8 +108,6 @@ public class ConfigScreen extends Screen {
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         this.renderBackground(matrices);
-        //drawTextWithShadow(matrices, this.textRenderer, Text.translatable("fishhelper.config.activatefield"), 10, 10, 0xFFFFFF);
-        //drawTextWithShadow(matrices, this.textRenderer, Text.translatable("fishhelper.config.cooldownfield"), 10, 25, 0xFFFFFF);
         drawTextWithShadow(matrices, this.textRenderer, Text.translatable("fishhelper.config.cooldownreductionfield"), 10, 60, 0xFFFFFF);
         drawTextWithShadow(matrices,this.textRenderer,Text.translatable("fishhelper.config.changepos"),10,100,0xFFFFFF);
 
@@ -125,8 +117,6 @@ public class ConfigScreen extends Screen {
         this.timerYSlider.render(matrices, mouseX, mouseY, delta);
 
         this.CooldownReduction_TextField.render(matrices, mouseX, mouseY, delta);
-
-        //drawCenteredTextWithShadow(matrices, this.textRenderer, this.title, this.width / 2, 20, 0xFFFFFF);
 
         super.render(matrices, mouseX, mouseY, delta);
     }

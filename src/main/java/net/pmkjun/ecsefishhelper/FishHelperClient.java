@@ -2,7 +2,6 @@ package net.pmkjun.ecsefishhelper;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.text.Text;
 import net.pmkjun.ecsefishhelper.config.FishHelperModMenu;
 import net.pmkjun.ecsefishhelper.file.Data;
 import net.pmkjun.ecsefishhelper.gui.totemCooltimeGui;
@@ -39,12 +38,8 @@ public class FishHelperClient {
         this.data.lastTotemTime = this.timer.getCurrentTime();
         this.data.lastTotemCooldownTime = this.timer.getCurrentTime()+(long)this.data.valueTotemActivetime * 60 * 1000;
     }
-    public void reduceCooldownTotem(){
-        this.data.lastTotemCooldownTime += this.data.valueCooldownReduction;
-    }
-
     public String getUsername(){
-        return this.mc.player.getName().getString();
+        return this.mc.getSession().getUsername();
     }
 
     public static  FishHelperClient getInstance(){

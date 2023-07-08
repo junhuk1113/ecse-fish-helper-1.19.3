@@ -4,9 +4,6 @@ import com.mojang.logging.LogUtils;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.terraformersmc.modmenu.api.ModMenuApi;
 
 public class FishHelperMod implements ModInitializer {
 	public static final String MODID = "ecse-fish-helper";

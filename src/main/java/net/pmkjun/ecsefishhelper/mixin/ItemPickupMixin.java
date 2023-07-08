@@ -22,21 +22,12 @@ public class ItemPickupMixin {
 	@Inject(method = "onSlotClick", at = @At("RETURN"))
 	private void onSlotClick(int slotIndex, int button, SlotActionType actionType, PlayerEntity player, CallbackInfo ci) {
 		if (player instanceof ClientPlayerEntity) {
-			ClientPlayerEntity clientPlayer = (ClientPlayerEntity) player;
-			if (!cursorStack.isEmpty()&&!cursorStack.hasNbt()){
-				LOGGER.info("dont have nbt");
-			}
 			if (!cursorStack.isEmpty()&&cursorStack.hasNbt()) {
-				//Text itemName = cursorStack.getName();
-				//LOGGER.info("item.pickup: " + itemName.getString());
-
-				LOGGER.info("item.pickup: " + cursorStack.getName().getString());
 				if(cursorStack.getName().getString().equals("토템 발동")){
 					LOGGER.info("토템 발동 버튼 눌림");
 					FishHelperClient.getInstance().updateLastTotemtime();
 					FishHelperClient.getInstance().configManage.save();
 				}
-				//LOGGER.info("item.pickup: " + cursorStack.getTooltipData().);
 			}
 		}
 	}
