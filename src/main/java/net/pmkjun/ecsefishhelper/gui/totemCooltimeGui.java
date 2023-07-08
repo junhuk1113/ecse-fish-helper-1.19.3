@@ -52,8 +52,15 @@ public class totemCooltimeGui extends DrawableHelper {
 
     private void render(MatrixStack poseStack,Identifier texture, int second){
         int x =2,y=2;
+        int Timer_xpos=2;
+
+        if(this.client.data.isTimerright){
+            Timer_xpos = this.mc.getWindow().getScaledWidth()-43;
+
+        }
         poseStack.push();
-        poseStack.translate(x,(y+18*9),0.0D);
+        //poseStack.translate(x,(y+18*9),0.0D);
+        poseStack.translate(Timer_xpos,this.client.data.Timer_ypos,0.0D);
         poseStack.scale(0.0625F, 0.0625F, 0.0625F);
 
         RenderSystem.setShaderTexture(0,texture);
@@ -66,9 +73,10 @@ public class totemCooltimeGui extends DrawableHelper {
             int minute = second / 60;
             second -= minute * 60;
             poseStack.push();
-            poseStack.translate((x + 16 + 2), (y + 4 + 18 * 9), 0.0D);
+            //poseStack.translate((x + 16 + 2), (y + 4 + 18 * 9), 0.0D);
+            poseStack.translate((Timer_xpos + 16 + 2), this.client.data.Timer_ypos+4, 0.0D);
             poseStack.scale(0.9090909F, 0.9090909F, 0.9090909F);
-            drawTextWithShadow(poseStack, this.font, (Text)Text.literal(String.format("%d:%d", new Object[] { Integer.valueOf(minute), Integer.valueOf(second) })), 0, 0, 16777215);
+            drawTextWithShadow(poseStack, this.font, (Text)Text.literal(String.format("%02d:%02d", new Object[] { Integer.valueOf(minute), Integer.valueOf(second) })), 0, 0, 16777215);
             //drawTextWithShadow(poseStack, this.font, (Text)Text.literal(Double.toString(this.client.getCurrentTime())), 0, 0, 16777215);
             poseStack.scale(1.1F, 1.1F, 1.1F);
 

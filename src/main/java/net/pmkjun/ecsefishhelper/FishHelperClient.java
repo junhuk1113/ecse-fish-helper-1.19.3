@@ -35,9 +35,6 @@ public class FishHelperClient {
         this.totemcooltimeGui.renderTick(poseStack,this.timer);
         this.timer.updateTime();
     }
-    public void debugFishingMixin(String str){ //테스트 함수
-        this.data.FishingMixinString = str;
-    }
     public void updateLastTotemtime(){
         this.data.lastTotemTime = this.timer.getCurrentTime();
         this.data.lastTotemCooldownTime = this.timer.getCurrentTime()+(long)this.data.valueTotemActivetime * 60 * 1000;
