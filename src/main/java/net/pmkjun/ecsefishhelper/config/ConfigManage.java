@@ -8,7 +8,7 @@ import java.io.*;
 public class ConfigManage {
     private static final String DATA_DIRECTORY_PATH = "\\ECSE FishHelper";
 
-    private static final String DATA_FILE_PATH = "\\ECSE FishHelper\\config.data";
+    private static final String DATA_FILE_PATH = "\\ECSE FishHelper\\configv2.data";
 
     public void save() {
         save((FishHelperClient.getInstance()).data);

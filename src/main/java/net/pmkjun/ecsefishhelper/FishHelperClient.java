@@ -7,7 +7,6 @@ import net.pmkjun.ecsefishhelper.file.Data;
 import net.pmkjun.ecsefishhelper.gui.totemCooltimeGui;
 import net.pmkjun.ecsefishhelper.util.Timer;
 import net.pmkjun.ecsefishhelper.config.ConfigManage;
-
 public class FishHelperClient {
     private MinecraftClient mc;
     private static FishHelperClient instance;
