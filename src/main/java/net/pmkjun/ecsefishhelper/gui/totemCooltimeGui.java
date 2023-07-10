@@ -10,8 +10,6 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.util.math.MatrixStack;
 
-
-
 public class totemCooltimeGui extends DrawableHelper {
     private MinecraftClient mc;
     private FishHelperClient client;

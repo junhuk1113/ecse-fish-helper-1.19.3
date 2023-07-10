@@ -5,7 +5,8 @@
 	"mixins": [
 		"FishingMixin",
 		"ItemPickupMixin",
-		"GuiMixin"
+		"GuiMixin",
+		"ItemModelsMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
