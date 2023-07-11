@@ -26,13 +26,15 @@ public class ItemModelsMixin {
 
     @Inject(method = {"getModel(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/client/render/model/BakedModel;"},at = {@At("TAIL")}, cancellable = true)
     public void getModelMixin(ItemStack stack, CallbackInfoReturnable<BakedModel> cir){
-        int index;
+        Item changed_item;
         cir.cancel();
 
-        index = FishItems.getFishItem(stack);
+        /*index = FishItems.getFishItem(stack);
         if(index != -1){
             stack = new ItemStack((ItemConvertible) FishItems.COMMON_FISH[index], stack.getCount());
-        }
+        }*/
+        if((changed_item = FishItems.getFishItem(stack))!=null) stack = new ItemStack((ItemConvertible) changed_item, stack.getCount());
+
         BakedModel bakedModel = getModel(stack.getItem());
         cir.setReturnValue((bakedModel == null) ? modelManager.getMissingModel() : bakedModel);
     }

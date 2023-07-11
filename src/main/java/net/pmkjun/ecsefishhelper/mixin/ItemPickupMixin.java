@@ -22,10 +22,10 @@ public class ItemPickupMixin {
 	@Inject(method = "onSlotClick", at = @At("RETURN"))
 	private void onSlotClick(int slotIndex, int button, SlotActionType actionType, PlayerEntity player, CallbackInfo ci) {
 		if (player instanceof ClientPlayerEntity) {
-			LOGGER.info(cursorStack.getName().getString());
+			//LOGGER.info(cursorStack.getItem().getName().getString());
 			if (!cursorStack.isEmpty()&&cursorStack.hasNbt()) {
 				if(cursorStack.getName().getString().equals("토템 발동")){
-					LOGGER.info("토템 발동 버튼 눌림");
+					//LOGGER.info("토템 발동 버튼 눌림");
 					FishHelperClient.getInstance().updateLastTotemtime();
 					FishHelperClient.getInstance().configManage.save();
 				}
