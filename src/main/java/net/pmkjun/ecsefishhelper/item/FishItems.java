@@ -56,7 +56,7 @@ public class FishItems {
         String name = itemStack.getName().getString();
         int index;
 
-        //if(!(itemStack.getItem().getName().equals("cod"))) return null;
+        if(!(itemStack.getItem().toString().equals("cod"))) return null;
 
         index = Arrays.stream(COMMMON_FISH_LIST).toList().indexOf(name);
         if(index!=-1) return COMMON_FISH[index];
